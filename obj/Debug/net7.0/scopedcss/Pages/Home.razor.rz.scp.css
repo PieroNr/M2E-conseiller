@@ -1,0 +1,41 @@
+.home[b-y6a40052n7] {
+    margin: 16px 0;
+    height: calc(100% - 32px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+p[b-y6a40052n7] {
+    margin: 0;
+    margin-bottom: -15px;
+}
+
+
+svg[b-y6a40052n7] {
+    width: calc(100% - 128px);
+    max-width: 500px;
+}
+
+.home-intro[b-y6a40052n7] {
+    font-size: 1.6rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-scanButton[b-y6a40052n7] {
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.25);
+    width: 40%;
+    max-width: 500px;
+    height: 48px;
+    border: none;
+    color: #8000FF;
+    font-weight: 600;
+    font-size: 1rem;
+}

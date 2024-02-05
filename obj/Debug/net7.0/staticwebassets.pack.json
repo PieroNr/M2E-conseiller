@@ -1,0 +1,89 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\bin\\Debug\\net7.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\obj\\Debug\\net7.0\\build-gz\\Ljntrb1r.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\obj\\Debug\\net7.0\\scopedcss\\bundle\\M2E-conseiller.styles.css",
+      "PackagePath": "staticwebassets\\M2E-conseiller.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\obj\\Debug\\net7.0\\service-worker-assets.js",
+      "PackagePath": "staticwebassets\\service-worker-assets.js"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\obj\\Debug\\net7.0\\service-worker\\service-worker.published.js",
+      "PackagePath": "staticwebassets\\service-worker.js"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\Components\\Dialog.razor",
+      "PackagePath": "staticwebassets\\Components\\Dialog.razor"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\Components\\Dialog.razor.css",
+      "PackagePath": "staticwebassets\\Components\\Dialog.razor.css"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\fail-scan.json",
+      "PackagePath": "staticwebassets\\fail-scan.json"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\icon-512.png",
+      "PackagePath": "staticwebassets\\icon-512.png"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\js\\lottie-animation.js",
+      "PackagePath": "staticwebassets\\js\\lottie-animation.js"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\manifest.json",
+      "PackagePath": "staticwebassets\\manifest.json"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "C:\\Users\\piero\\OneDrive\\Documents\\Projet\\PE\\M2E-conseiller\\wwwroot\\success-scan.json",
+      "PackagePath": "staticwebassets\\success-scan.json"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.M2E-conseiller.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.M2E-conseiller.props",
+      "PackagePath": "build\\M2E-conseiller.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.M2E-conseiller.props",
+      "PackagePath": "buildMultiTargeting\\M2E-conseiller.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.M2E-conseiller.props",
+      "PackagePath": "buildTransitive\\M2E-conseiller.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

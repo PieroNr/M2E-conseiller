@@ -1,0 +1,17 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavManager
+@using MudBlazor
+<div class="page">
+    @Body
+    
+    
+</div>
+<MudThemeProvider/>
+<MudDialogProvider/>
+
+@code {
+    private void NavigateToHome()
+    {
+        NavManager.NavigateTo("/?OnScan=false");
+    }
+}

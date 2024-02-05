@@ -1,0 +1,17 @@
+﻿.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 12px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.dialog-body {
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 12px 12px 0 12px;
+    color: black;
+    font-weight: 400;
+}

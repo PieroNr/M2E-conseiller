@@ -1,0 +1,85 @@
+﻿@using System.Text.Json
+@using M2E_conseiller.Models
+@inject IJSRuntime JSRuntime
+
+<div class="scanner">
+    <BlazorBarcodeScanner.ZXing.JS.BarcodeReader
+        StartCameraAutomatically="true"
+        ShowStart="false"
+        ShowReset="false"
+        ShowStop="false"
+        ShowResult="false"
+        Title=""
+        ShowToggleTorch = "false"
+        ShowVideoDeviceList="false"
+        OnBarcodeReceived="LocalReceivedBarcodeText"
+    />
+    @if (_showAnimation)
+        {
+            <div class="animation">
+                <lottie-player src="@(_successScan ? "success-scan.json" : "fail-scan.json")"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" autoplay></lottie-player>   
+                <div class="animation-text">
+                    <p>@_textToShow</p>
+                    @if (_successScan)
+                    {
+                        <button class="animation-button" @onclick="() => OnSuccessScan.InvokeAsync(_registered.BNI)">Consulter</button>
+                    }
+                </div>
+            </div>
+        }
+    
+    </div>
+
+@code
+{
+    [Parameter] public EventCallback<string> OnSuccessScan { get; set; }
+    private bool _showAnimation = false;
+    private bool _successScan = false;
+    private Registered? _registered;
+    private string _textToShow = "";
+    
+    private void LocalReceivedBarcodeText(BarcodeReceivedEventArgs args)
+    {
+        if(_showAnimation) return;
+        try
+        {
+            _registered = JsonSerializer.Deserialize<Registered>(args.BarcodeText);
+            if (_registered != null)
+            {
+                _successScan = true;
+                _textToShow = "Bonjour, " + _registered.Firstname + " " + _registered.Lastname;
+            }
+            else
+            {
+                _successScan = false;
+            }
+        }
+        catch (JsonException)
+        {
+            _successScan = false;
+            _textToShow = "Erreur lors de la lecture du QR Code";
+        }
+        _showAnimation = true;
+        StateHasChanged();
+    }
+    
+   
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (_showAnimation)
+        {
+            await JSRuntime.InvokeVoidAsync("startAnimation", DotNetObjectReference.Create(this));
+        }
+    }
+
+    [JSInvokable]
+    public async Task OnAnimationComplete()
+    {
+        _showAnimation = false;
+        StateHasChanged();
+        
+    }
+    
+    
+}

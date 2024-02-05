@@ -1,0 +1,74 @@
+﻿@page "/"
+@inject NavigationManager NavManager
+@using MudBlazor
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+
+<main>
+    @if(OnScan || _selectedIndex != 0)
+    {
+        <Logo OnClick="GoToHome"></Logo>
+    }
+    <article class="content">
+        <div class="index-container">
+
+            <MudCarousel Class="slider" ShowArrows="false" ShowBullets="false" EnableSwipeGesture="true" AutoCycle="false" @bind-SelectedIndex="_selectedIndex" TData="object">
+                <MudCarouselItem>
+                    @if (OnScan)
+                    {
+                        <Scanner OnSuccessScan="(string value) => ScanValidated(value)"></Scanner>
+                    }
+                    else
+                    {
+                        <Home OnScanActivated="() => OnScan = true"></Home>
+                    }
+                </MudCarouselItem>
+                <MudCarouselItem>
+                    <Counter valueScan="@valueScan"></Counter>
+                </MudCarouselItem>
+
+            </MudCarousel>
+
+        </div>
+    </article>
+</main>
+
+    <div class="navbar">
+        <NavMenu SelectedIndex="@_selectedIndex" SelectedIndexChanged="UpdateSelectedIndex"></NavMenu>
+    </div>
+
+
+@code {
+    [Parameter] public bool OnScan { get; set; }
+    private int _selectedIndex = 0;
+    private string valueScan = "";
+
+    private void UpdateSelectedIndex(int index)
+    {
+        _selectedIndex = index;
+    }
+
+   protected override async Task OnInitializedAsync()
+    {
+        var scannerActivated = await localStorage.GetItemAsync<string>("scannerActivated");
+        if (!string.IsNullOrEmpty(scannerActivated) && scannerActivated == "true")
+        {
+            OnScan = true;
+        }
+        
+    }
+    
+    private async void GoToHome()
+    {
+        OnScan = false;
+        _selectedIndex = 0;
+        await localStorage.RemoveItemAsync("scannerActivated");
+    }
+    
+    private void ScanValidated(string value)
+    {
+        _selectedIndex = 1;
+        valueScan = value;
+    }
+
+}
