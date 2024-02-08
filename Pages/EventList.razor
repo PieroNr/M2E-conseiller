@@ -1,0 +1,29 @@
+﻿@using M2E_conseiller.Models
+<PageTitle>Événements</PageTitle>
+<div class="events">
+    <h1>Événements du jour</h1>
+<div class="eventList">
+    @foreach (var e in events)
+    {
+        <div class="event">
+            <h2>@e.Name</h2>
+            <p>@e.Description</p>
+            <p>@e.Date</p>
+            <p>@e.Location</p>
+            @foreach(var p in e.Registered)
+            {
+                <p>@p.Id / @p.Firstname / @p.Lastname / @p.IsCheckedIn</p>
+            }
+        </div>
+    }
+</div>
+</div>
+
+
+
+
+@code {
+    [Parameter] public string valueScan { get; set; }
+    [Parameter] public List<Event> events { get; set; }
+    
+}

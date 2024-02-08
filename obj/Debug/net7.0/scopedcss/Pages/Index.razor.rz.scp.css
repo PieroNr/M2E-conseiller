@@ -1,4 +1,4 @@
-.index-container[b-pbp8ypaynr] {
+.index-container[b-rny7x2nqss] {
     height: 100%;
     width: 100%;
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-main[b-pbp8ypaynr] {
+main[b-rny7x2nqss] {
     flex: 1;
     width: 100%;
     height: calc(100vh - 80px);
@@ -14,7 +14,7 @@ main[b-pbp8ypaynr] {
 
 }
 
-main[b-pbp8ypaynr]  > .logo {
+main[b-rny7x2nqss]  > .logo {
     position: absolute;
     z-index: 3;
     top: 20px;
@@ -24,7 +24,7 @@ main[b-pbp8ypaynr]  > .logo {
 }
 
 
-.navbar[b-pbp8ypaynr] {
+.navbar[b-rny7x2nqss] {
     width: 100%;
     max-width: 1000px;
     height: 80px;
@@ -37,7 +37,7 @@ main[b-pbp8ypaynr]  > .logo {
     z-index: 2;
 }
 
-.content[b-pbp8ypaynr], .index-container[b-pbp8ypaynr]  .slider {
+.content[b-rny7x2nqss], .index-container[b-rny7x2nqss]  .slider {
     padding: 0;
     margin: 0;
     width: 100%;

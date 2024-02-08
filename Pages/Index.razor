@@ -1,7 +1,10 @@
 ﻿@page "/"
 @inject NavigationManager NavManager
 @using MudBlazor
-@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@using M2E_conseiller.Models
+@using Blazored.LocalStorage
+@using Smoby.Web.Services
+@inject ILocalStorageService localStorage
 
 
 <main>
@@ -16,7 +19,7 @@
                 <MudCarouselItem>
                     @if (OnScan)
                     {
-                        <Scanner OnSuccessScan="(string value) => ScanValidated(value)"></Scanner>
+                        <Scanner OnSuccessScan="(string value) => ScanValidated(value)" events="EventList"></Scanner>
                     }
                     else
                     {
@@ -24,7 +27,7 @@
                     }
                 </MudCarouselItem>
                 <MudCarouselItem>
-                    <Counter valueScan="@valueScan"></Counter>
+                    <EventList valueScan="@valueScan" events="EventList"></EventList>
                 </MudCarouselItem>
 
             </MudCarousel>
@@ -40,6 +43,7 @@
 
 @code {
     [Parameter] public bool OnScan { get; set; }
+    [Parameter] public List<Event> EventList { get; set; } = new List<Event>();
     private int _selectedIndex = 0;
     private string valueScan = "";
 
@@ -50,12 +54,18 @@
 
    protected override async Task OnInitializedAsync()
     {
+        var events = await localStorage.GetItemAsync<List<Event>>("events");
+        if (events != null)
+        {
+            EventList = events;
+        }
+        
+        localStorage.Changed += OnLocalStorageChanged;
         var scannerActivated = await localStorage.GetItemAsync<string>("scannerActivated");
-        if (!string.IsNullOrEmpty(scannerActivated) && scannerActivated == "true")
+        if (!await ServiceLocator.ConfigurationService.GetFeature("DisplayHome")!)
         {
             OnScan = true;
         }
-        
     }
     
     private async void GoToHome()
@@ -69,6 +79,23 @@
     {
         _selectedIndex = 1;
         valueScan = value;
+    }
+    
+    private async void OnLocalStorageChanged(object sender, ChangedEventArgs e)
+    {
+        if (e.Key == "events")
+        {
+            var events = await localStorage.GetItemAsync<List<Event>>("events");
+            if (events != null)
+            {
+                EventList = events;
+            }
+        }
+    }
+
+    public void Dispose()
+    {
+        localStorage.Changed -= OnLocalStorageChanged;
     }
 
 }

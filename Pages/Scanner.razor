@@ -1,6 +1,7 @@
 ﻿@using System.Text.Json
 @using M2E_conseiller.Models
 @inject IJSRuntime JSRuntime
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <div class="scanner">
     <BlazorBarcodeScanner.ZXing.JS.BarcodeReader
@@ -22,7 +23,7 @@
                     <p>@_textToShow</p>
                     @if (_successScan)
                     {
-                        <button class="animation-button" @onclick="() => OnSuccessScan.InvokeAsync(_registered.BNI)">Consulter</button>
+                        <button class="animation-button" @onclick="() => OnSuccessScan.InvokeAsync()">Consulter</button>
                     }
                 </div>
             </div>
@@ -33,21 +34,50 @@
 @code
 {
     [Parameter] public EventCallback<string> OnSuccessScan { get; set; }
+    [Parameter] public List<Event> events { get; set; }
     private bool _showAnimation = false;
     private bool _successScan = false;
-    private Registered? _registered;
+    private QRcodeFormat? _registered;
     private string _textToShow = "";
     
-    private void LocalReceivedBarcodeText(BarcodeReceivedEventArgs args)
+    private async void LocalReceivedBarcodeText(BarcodeReceivedEventArgs args)
     {
         if(_showAnimation) return;
         try
         {
-            _registered = JsonSerializer.Deserialize<Registered>(args.BarcodeText);
+            _registered = JsonSerializer.Deserialize<QRcodeFormat>(args.BarcodeText);
             if (_registered != null)
             {
-                _successScan = true;
-                _textToShow = "Bonjour, " + _registered.Firstname + " " + _registered.Lastname;
+                var registeredId = _registered.RegisteredId;
+                var eventId = _registered.EventId;
+                if(events.Any(e => e.Id == eventId && e.Registered.Any(r => r.Id == registeredId)))
+                {
+                    if (events.First(e => e.Id == eventId).Registered.First(r => r.Id == registeredId).IsCheckedIn)
+                    {
+                        _successScan = false;
+                        _textToShow = "Vous avez déjà été enregistré";
+                    }
+                    else
+                    {
+                        _successScan = true;
+                        var registered = events.First(e => e.Id == eventId).Registered.First(r => r.Id == registeredId);
+                        _textToShow = $"Bienvenue {registered.Firstname} {registered.Lastname}";
+                        events.First(e => e.Id == eventId).Registered.First(r => r.Id == registeredId).IsCheckedIn = true;
+                        await localStorage.SetItemAsync("events", events);
+                    }
+                    ;
+                }
+                else if (events.Any(e => e.Id == eventId))
+                {
+                    _successScan = false;
+                    _textToShow = "Vous n'êtes pas inscrit à cet événement";
+                }
+                else
+                {
+                    _successScan = false;
+                    _textToShow = "Cet événement n'existe pas";
+                }
+                
             }
             else
             {

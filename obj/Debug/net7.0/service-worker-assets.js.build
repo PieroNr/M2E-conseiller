@@ -1,15 +1,15 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-7S4NuOWJqxrAOT8XwSCx\/Vhm5XsWlyvPR8uVTJbsqiQ=",
+      "hash": "sha256-Rg2hBjdMIURJo7Nww0DboX5epsewGehTxnZFy889iHM=",
       "url": "Components\/Dialog.razor"
     },
     {
-      "hash": "sha256-IOvYy19MtWogX4GbjYcMAtugzw4m5DLLDRalUNQxAdQ=",
+      "hash": "sha256-C4nVqZ9a5VonBjURU0FykjqoMHJxvzYAmIgUiUizXOM=",
       "url": "Components\/Dialog.razor.css"
     },
     {
-      "hash": "sha256-bu9ojX8meHwYSM5EJwqATBHYcaIQlpXfU2rfFrKPPWs=",
+      "hash": "sha256-wFdc2aHXJ6B89kHuQMOatVQBm8i4\/l+Qh+3qV7YL\/1I=",
       "url": "css\/app.css"
     },
     {
@@ -29,19 +29,19 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-K6QS3NlkHW9+zG\/bj5X8aFUOgUouWabB3PTQps\/\/BzI=",
+      "hash": "sha256-HFkndXd\/zqrKB1Ic4WeqzD7UHpTMdpL+B8UuMuF8lUU=",
       "url": "index.html"
     },
     {
-      "hash": "sha256-gkfQ3RHhbWxl5a7hlhhsBrmCp2M06Ut0zI6\/WSc+gS0=",
+      "hash": "sha256-Kz8MuTvQXnLweKjzJ7u4E5guEIUdA5tExmI2+4nlgMs=",
       "url": "js\/lottie-animation.js"
     },
     {
-      "hash": "sha256-xfP+Rz+r0wEitV6Q44+BL4mPeJ+kXxssCifiPX9URAc=",
+      "hash": "sha256-DH2P38gqj2H6or0lZSKjuoRuu9DEz2rQ+6Zl2utigXs=",
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-enKgCMkYmCpfEcmg6Annbmc40VZ\/A6aYYSQjZfVn2cU=",
+      "hash": "sha256-paIeuWnSzjeLGITWkk4p3rcejUsZWCJGPeOK9UhWXtg=",
       "url": "sample-data\/weather.json"
     },
     {
@@ -49,8 +49,16 @@
       "url": "success-scan.json"
     },
     {
-      "hash": "sha256-44wujqGkFpYPCHRhtP4SOtvRnNdAR4Uhd5GV9MJzpSw=",
+      "hash": "sha256-wYi343p2TiKcgpXpZKKkx0eEa48Kt35yghWapRUwrww=",
       "url": "M2E-conseiller.styles.css"
+    },
+    {
+      "hash": "sha256-\/1NbX0DLNrXWYLm53ulWcB8IVoLDp+p12HUzCCiQNKQ=",
+      "url": "_framework\/AWSSDK.Core.dll"
+    },
+    {
+      "hash": "sha256-paPnTWja6XaR3Sj9b4cj9\/vTI1kKQrIaM8AibUFPZ10=",
+      "url": "_framework\/AWSSDK.DynamoDBv2.dll"
     },
     {
       "hash": "sha256-3aMg5MbqMtjVNACdS9LidwS6cf85fVC0h1WOjKK3ip0=",
@@ -59,6 +67,14 @@
     {
       "hash": "sha256-5V8ovY1srbIIz7lzzMhLd3nNJ9LJ6bHoBOnLJahv8Go=",
       "url": "_framework\/Blazored.LocalStorage.dll"
+    },
+    {
+      "hash": "sha256-oO4YTpVf2ce0mcXsWiBJtNe6rm9Y\/CMg\/XJ++9R5gpw=",
+      "url": "_framework\/Flurl.dll"
+    },
+    {
+      "hash": "sha256-iCh7PZRMCelG6oFkIlf\/+RY5qt+inPYdKhmuUKrVRyM=",
+      "url": "_framework\/Flurl.Http.dll"
     },
     {
       "hash": "sha256-qItsrcGUYsmf5k\/rs5T3s0\/5TooOLLkE7D3h\/jaADeA=",
@@ -83,6 +99,34 @@
     {
       "hash": "sha256-Zu14OYccKsdCox8RZ+DsDcVlvU5EJAPlNCZHcdBmm90=",
       "url": "_framework\/Microsoft.AspNetCore.Metadata.dll"
+    },
+    {
+      "hash": "sha256-OBWh2or+2mU6elwqPfmL72FBZVKl2WzTJ4L\/IrKeXM4=",
+      "url": "_framework\/Microsoft.Bcl.AsyncInterfaces.dll"
+    },
+    {
+      "hash": "sha256-y5+O+HE1PNgSn0TwPo3hH4YjhuwltS3gYIkrSTD2QOs=",
+      "url": "_framework\/Microsoft.Bcl.HashCode.dll"
+    },
+    {
+      "hash": "sha256-6wEalSgltJAXpItHLpjXodzzgNjKdvwwfXdoCrd\/DBQ=",
+      "url": "_framework\/Microsoft.EntityFrameworkCore.dll"
+    },
+    {
+      "hash": "sha256-qYMRMI8apoCevJ7GAllY4aNO7AOWkvupHqJeFJTX5mk=",
+      "url": "_framework\/Microsoft.EntityFrameworkCore.Abstractions.dll"
+    },
+    {
+      "hash": "sha256-lSw2IM84yVySaN+9DOIshXzKXwvpkC8rE2WpOxrXI\/c=",
+      "url": "_framework\/Microsoft.EntityFrameworkCore.Relational.dll"
+    },
+    {
+      "hash": "sha256-nbbhRSvqXkyHt4o0AqvVmG6W0NP3P\/CrAVK4n50rHO0=",
+      "url": "_framework\/Microsoft.Extensions.Caching.Abstractions.dll"
+    },
+    {
+      "hash": "sha256-qoPCjCJPVGe0SpT5D5tFP2oLTsI3bF\/rmD04fiM8Nuw=",
+      "url": "_framework\/Microsoft.Extensions.Caching.Memory.dll"
     },
     {
       "hash": "sha256-PqQvp77oZ4+uuy2ElXk8AU9I6RfZSf18UGTrd4rulOo=",
@@ -159,6 +203,26 @@
     {
       "hash": "sha256-X97RWrrS7mmL+qB4nMvpwbZ2fsBXqAmL7CPwT3gBOJI=",
       "url": "_framework\/MudBlazor.dll"
+    },
+    {
+      "hash": "sha256-mRd6TL4DYldo1ko9czkjEDcoiPdMPrJxz3dekwV6OOY=",
+      "url": "_framework\/Newtonsoft.Json.dll"
+    },
+    {
+      "hash": "sha256-QjgSj7U1RwfIunK5Ia8x7ypwv89ikyptKPSeZpFLAvY=",
+      "url": "_framework\/Npgsql.dll"
+    },
+    {
+      "hash": "sha256-hHgvc74qFTL0cW5SFQdNfw\/iCvDIenW8xaboXOjQb1E=",
+      "url": "_framework\/Npgsql.EntityFrameworkCore.PostgreSQL.dll"
+    },
+    {
+      "hash": "sha256-w6jw7rOZVuJa2IjRw1KsrXCXKWIa7rOl+LQobH\/Bv1M=",
+      "url": "_framework\/Serialize.Linq.dll"
+    },
+    {
+      "hash": "sha256-16mrja4Q6G\/64zj7uNpzh8zjEfOOHQRVrlJg6m7YGhc=",
+      "url": "_framework\/SmobyModels.dll"
     },
     {
       "hash": "sha256-P\/MqD0fCBd5bgTM16JC1QC\/Zz7s+CwViyzmDFkBG4\/c=",
@@ -838,7 +902,7 @@
     },
     {
       "hash": "sha256-MHuxwxeVFybuBBTAWeZrvoStZpW+H4ThSaRcFvrfqXM=",
-      "url": "_framework\/dotnet.7.0.15.lg1jqlf9po.js"
+      "url": "_framework\/dotnet.7.0.15.n9epf4qb85.js"
     },
     {
       "hash": "sha256-aHk3Pm2JXopn6UPLJtovAqIdIk8GyIMzGm450cli9UE=",
@@ -865,11 +929,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-wo90j\/lMVFe\/\/h1SFLnhV1grPL2sqZSOdxv9FLvzmq0=",
+      "hash": "sha256-Jfn9wfIT19WYuwTaOkhQofGFn3QCFCjd6u9K5I8VrPQ=",
+      "url": "_framework\/Smoby.Web.dll"
+    },
+    {
+      "hash": "sha256-kYnsmZNMPapzdwSkxg1T9zPfu8rTXyKR7IyFffxq138=",
+      "url": "_framework\/Smoby.Web.pdb"
+    },
+    {
+      "hash": "sha256-Xqt54SNTiGOjx3IgmMQbkeKeKmqfrob2PS9qRP\/5S\/U=",
       "url": "_framework\/M2E-conseiller.dll"
     },
     {
-      "hash": "sha256-M+\/mUNYv8UallL0ybHWtjYM\/qHH7nQg9xpUG6vRmHa4=",
+      "hash": "sha256-FqTIC3Eewr6x2ovGP1qqKifK0+j5E35aIAq+1zM9q5E=",
       "url": "_framework\/M2E-conseiller.pdb"
     },
     {
@@ -877,7 +949,7 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-BQxIj0Q068big6Qc0ENBN\/sfhPuOxVbb01nFIEoAv8k=",
+      "hash": "sha256-niqz2A2SU6XIfLsQFWKXMQz2Zt3WwV+vhJQKzCRKvMs=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -897,5 +969,5 @@
       "url": "_content\/BlazorBarcodeScanner.ZXing.JS\/zxingjs.index.min.js"
     }
   ],
-  "version": "m9vLbdwh"
+  "version": "v5Q1eYdA"
 };

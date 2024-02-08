@@ -1,6 +1,10 @@
 ﻿@inherits LayoutComponentBase
-@inject NavigationManager NavManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject IJSRuntime JSRuntime
+@inject HttpClient Http
 @using MudBlazor
+@using M2E_conseiller.Models
+@using System.Text.Json
 <div class="page">
     @Body
     
@@ -10,8 +14,35 @@
 <MudDialogProvider/>
 
 @code {
-    private void NavigateToHome()
+    protected override async Task OnInitializedAsync()
     {
-        NavManager.NavigateTo("/?OnScan=false");
+        await CheckOnlineStatusAndFetchEvents();
+    }
+    
+    private async Task CheckOnlineStatusAndFetchEvents()
+    {
+        var isOnline = await JSRuntime.InvokeAsync<bool>("eval", "navigator.onLine");
+        if (isOnline)
+        {
+            try
+            {
+                var response = await Http.GetAsync("api/events");
+                var responseJson = await response.Content.ReadAsStringAsync();
+                var events = JsonSerializer.Deserialize<List<Event>>(responseJson);
+
+                await localStorage.SetItemAsync("events", events);
+                
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error fetching events");
+                var events = await localStorage.GetItemAsync<Event[]>("events");
+            }
+        }
+        else
+        {
+            var events = await localStorage.GetItemAsync<Event[]>("events");
+
+        }
     }
 }

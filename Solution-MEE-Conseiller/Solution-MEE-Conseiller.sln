@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2E-conseiller", "..\M2E-conseiller.csproj", "{D529BF4C-0ADA-485E-BA77-7C0C1281B41A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smoby.Web", "..\..\Smoby.Web\Smoby.Web\Smoby.Web.csproj", "{19EEF4D4-CA9C-4FCD-9F53-3E2E549A9291}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D529BF4C-0ADA-485E-BA77-7C0C1281B41A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D529BF4C-0ADA-485E-BA77-7C0C1281B41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D529BF4C-0ADA-485E-BA77-7C0C1281B41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D529BF4C-0ADA-485E-BA77-7C0C1281B41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19EEF4D4-CA9C-4FCD-9F53-3E2E549A9291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19EEF4D4-CA9C-4FCD-9F53-3E2E549A9291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19EEF4D4-CA9C-4FCD-9F53-3E2E549A9291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19EEF4D4-CA9C-4FCD-9F53-3E2E549A9291}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

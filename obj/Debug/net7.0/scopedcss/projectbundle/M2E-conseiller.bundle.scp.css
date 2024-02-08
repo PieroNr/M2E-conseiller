@@ -1,16 +1,31 @@
-/* /Pages/Counter.razor.rz.scp.css */
-.evenements[b-hzrzk36hr7] {
-    margin: 16px 0;
-    height: calc(100% - 32px);
+/* /Pages/EventList.razor.rz.scp.css */
+.events[b-c8j3kxwjwp] {
+    height: calc(100% - 100px);
+    margin-top: 100px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 40px;
+    overflow-y: auto;
 }
+
+h1[b-c8j3kxwjwp] {
+    color: white; 
+    font-size: 24px;
+    font-weight: 600; 
+    word-wrap: break-word
+}
+
+p[b-c8j3kxwjwp] {
+    color: white; 
+    font-size: 16px;
+    font-weight: 400; 
+    word-wrap: break-word
+}
+
 /* /Pages/Home.razor.rz.scp.css */
-.home[b-y6a40052n7] {
+.home[b-n7hj18dvlk] {
     margin: 16px 0;
     height: calc(100% - 32px);
     width: 100%;
@@ -20,18 +35,18 @@
     justify-content: center;
     gap: 40px;
 }
-p[b-y6a40052n7] {
+p[b-n7hj18dvlk] {
     margin: 0;
     margin-bottom: -15px;
 }
 
 
-svg[b-y6a40052n7] {
+svg[b-n7hj18dvlk] {
     width: calc(100% - 128px);
     max-width: 500px;
 }
 
-.home-intro[b-y6a40052n7] {
+.home-intro[b-n7hj18dvlk] {
     font-size: 1.6rem;
     color: white;
     display: flex;
@@ -39,7 +54,7 @@ svg[b-y6a40052n7] {
     align-items: center;
 }
 
-.home-scanButton[b-y6a40052n7] {
+.home-scanButton[b-n7hj18dvlk] {
     border-radius: 10px;
     background: #FFF;
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.25);
@@ -52,7 +67,7 @@ svg[b-y6a40052n7] {
     font-size: 1rem;
 }
 /* /Pages/Index.razor.rz.scp.css */
-.index-container[b-pbp8ypaynr] {
+.index-container[b-rny7x2nqss] {
     height: 100%;
     width: 100%;
     display: flex;
@@ -60,7 +75,7 @@ svg[b-y6a40052n7] {
     justify-content: center;
 }
 
-main[b-pbp8ypaynr] {
+main[b-rny7x2nqss] {
     flex: 1;
     width: 100%;
     height: calc(100vh - 80px);
@@ -68,7 +83,7 @@ main[b-pbp8ypaynr] {
 
 }
 
-main[b-pbp8ypaynr]  > .logo {
+main[b-rny7x2nqss]  > .logo {
     position: absolute;
     z-index: 3;
     top: 20px;
@@ -78,7 +93,7 @@ main[b-pbp8ypaynr]  > .logo {
 }
 
 
-.navbar[b-pbp8ypaynr] {
+.navbar[b-rny7x2nqss] {
     width: 100%;
     max-width: 1000px;
     height: 80px;
@@ -91,7 +106,7 @@ main[b-pbp8ypaynr]  > .logo {
     z-index: 2;
 }
 
-.content[b-pbp8ypaynr], .index-container[b-pbp8ypaynr]  .slider {
+.content[b-rny7x2nqss], .index-container[b-rny7x2nqss]  .slider {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -102,7 +117,7 @@ main[b-pbp8ypaynr]  > .logo {
 }
 
 /* /Pages/Scanner.razor.rz.scp.css */
-.scanner[b-qkl7hm7cbz] {
+.scanner[b-k5x75tvjgx] {
     width: 100%;
     height: 100%;
     display: flex;
@@ -110,24 +125,24 @@ main[b-pbp8ypaynr]  > .logo {
     justify-content: center;
 }
 
-.scanner[b-qkl7hm7cbz]  .zxing-container,.scanner[b-qkl7hm7cbz]  .zxing-video-container, .scanner[b-qkl7hm7cbz]  video {
+.scanner[b-k5x75tvjgx]  .zxing-container,.scanner[b-k5x75tvjgx]  .zxing-video-container, .scanner[b-k5x75tvjgx]  video {
     width: 100%;
     height: calc(100% + 15px);
     max-width: 1000px;
     max-height: 1000px;
     
 }
-.scanner[b-qkl7hm7cbz]  .zxing-container {
+.scanner[b-k5x75tvjgx]  .zxing-container {
     position: absolute;
     z-index: 1;
 }
 
 
-.scanner[b-qkl7hm7cbz]  video {
+.scanner[b-k5x75tvjgx]  video {
     object-fit: cover;
 }
 
-.animation[b-qkl7hm7cbz] {
+.animation[b-k5x75tvjgx] {
     position: absolute;
     z-index: 5;
     top: 50%;
@@ -135,7 +150,7 @@ main[b-pbp8ypaynr]  > .logo {
     transform: translate(-50%, -50%);
 }
 
-.animation-text[b-qkl7hm7cbz] {
+.animation-text[b-k5x75tvjgx] {
     font-size: 1.5rem;
     color: white;
     text-align: center;
@@ -143,13 +158,13 @@ main[b-pbp8ypaynr]  > .logo {
     margin-bottom: -15px;
     font-weight: bolder;
     text-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.25);
-    animation: fadeOut-b-qkl7hm7cbz 0.3s reverse;
+    animation: fadeOut-b-k5x75tvjgx 0.3s reverse;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     padding: 10px;
 }
 
-.animation-button[b-qkl7hm7cbz] {
+.animation-button[b-k5x75tvjgx] {
 
     border: 1px solid #8000FF;
     border-radius: 10px;
@@ -159,20 +174,20 @@ main[b-pbp8ypaynr]  > .logo {
     font-size: 1rem;
     font-weight: bolder;
     text-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.25);
-    animation: fadeOut-b-qkl7hm7cbz 0.3s reverse;
+    animation: fadeOut-b-k5x75tvjgx 0.3s reverse;
 }
 
-.fade-out[b-qkl7hm7cbz] {
-    animation: fadeOut-b-qkl7hm7cbz 1s forwards;
+.fade-out[b-k5x75tvjgx] {
+    animation: fadeOut-b-k5x75tvjgx 1s forwards;
 }
 
-@keyframes fadeOut-b-qkl7hm7cbz {
+@keyframes fadeOut-b-k5x75tvjgx {
     from { opacity: 1; }
     to { opacity: 0; }
 }
 
 /* /Shared/MainLayout.razor.rz.scp.css */
-.page[b-b7yq59ufps] {
+.page[b-fdnb7yh91x] {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -189,23 +204,23 @@ main[b-pbp8ypaynr]  > .logo {
 
 
 /* /Shared/NavMenu.razor.rz.scp.css */
-.navbar-container[b-nhp6zl49mm] {
+.navbar-container[b-1n3v5rsuym] {
     width: 100%;
     height: 80px;
 }
 
-.navbar-items[b-nhp6zl49mm] {
+.navbar-items[b-1n3v5rsuym] {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-.navbar-item[b-nhp6zl49mm], .navbar-item button[b-nhp6zl49mm] {
+.navbar-item[b-1n3v5rsuym], .navbar-item button[b-1n3v5rsuym] {
     color: #676767;
     text-decoration: none!important;
 }
-.navbar-item button[b-nhp6zl49mm] {
+.navbar-item button[b-1n3v5rsuym] {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -213,21 +228,21 @@ main[b-pbp8ypaynr]  > .logo {
 }
 
 
-.navbar-item button.active[b-nhp6zl49mm] {
+.navbar-item button.active[b-1n3v5rsuym] {
     color: #8000FF; 
 }
-.navbar-item button.active .navbar-item__icon[b-nhp6zl49mm] {
+.navbar-item button.active .navbar-item__icon[b-1n3v5rsuym] {
     fill: #8000FF;
 }
 
-.navbar-item__icon[b-nhp6zl49mm] {
+.navbar-item__icon[b-1n3v5rsuym] {
     width: 40px;
     height: 40px;
 }
 
 
 /* /wwwroot/Components/Dialog.razor.rz.scp.css */
-.dialog-header[b-s5gtumvswj] {
+.dialog-header[b-1flagz9av0] {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -237,7 +252,7 @@ main[b-pbp8ypaynr]  > .logo {
     font-weight: 600;
 }
 
-.dialog-body[b-s5gtumvswj] {
+.dialog-body[b-1flagz9av0] {
     font-size: 0.8rem;
     text-align: center;
     margin: 12px 12px 0 12px;
