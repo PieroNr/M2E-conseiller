@@ -1,29 +1,116 @@
 ﻿@using M2E_conseiller.Models
+@using Smoby.Web.Services
+@using MudBlazor
 <PageTitle>Événements</PageTitle>
 <div class="events">
     <h1>Événements du jour</h1>
-<div class="eventList">
-    @foreach (var e in events)
-    {
-        <div class="event">
-            <h2>@e.Name</h2>
-            <p>@e.Description</p>
-            <p>@e.Date</p>
-            <p>@e.Location</p>
-            @foreach(var p in e.Registered)
-            {
-                <p>@p.Id / @p.Firstname / @p.Lastname / @p.IsCheckedIn</p>
-            }
-        </div>
-    }
-</div>
-</div>
+    <div class="eventList">
+        @foreach (var e in events)
+        {
+            <div class="event">
+                <div class="event-content">
+                <div class="event-header">
+                    <h2>@e.Name</h2>
+                    <p class="event-date">@e.Date.ToString("HH\\hmm")</p>
+                </div>
 
+                <p class="event-description">@e.Description</p>
 
+                <p class="event-location">@e.Location</p>
+                </div>
+                <MudExpansionPanel Dense="true" DisableGutters="true">
+                    <TitleContent>
+                        <div class="d-flex">
+                            <p class="event-registered">Inscrits</p>
+                            <MudBadge Content="@NbRegisteredCheckedInAboutMax(e.Registered)" Color="Color.Primary" Overlap="true" Class="d-flex ml-5 mt-1">
+                            </MudBadge>
+                        </div>
+                    </TitleContent>
+                    <ChildContent>
+                        <MudProgressLinear Class="progressBar mt-1" Color="Color.Default" Style="color: white" Rounded="true" Size="Size.Large" Value="@CalculatePercentage(e.Registered)">
+                            <MudText Typo="Typo.subtitle1" Color="Color.Inherit" Style="color: white">
+                                <b>@CalculatePercentage(e.Registered)%</b>
+                            </MudText>
+                        </MudProgressLinear>
+                        <div class="mt-3 infos">
+                            @foreach (var p in e.Registered)
+                            {
+                                <div class="infoRegistered">
+                                    <div class="infoModel">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.00002 8.66667C9.84097 8.66667 11.3334 7.17428 11.3334 5.33333C11.3334 3.49238 9.84097 2 8.00002 2C6.15907 2 4.66669 3.49238 4.66669 5.33333C4.66669 7.17428 6.15907 8.66667 8.00002 8.66667Z" stroke="#E8D2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M13.3334 14C13.3334 12.5855 12.7715 11.229 11.7713 10.2288C10.7711 9.22857 9.41451 8.66667 8.00002 8.66667C6.58553 8.66667 5.22898 9.22857 4.22878 10.2288C3.22859 11.229 2.66669 12.5855 2.66669 14" stroke="#E8D2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+
+                                    @if (_displayName)
+                                    {
+                                        <p>@p.Firstname @p.Lastname</p>
+                                    }
+                                    else
+                                    {
+                                        <p>@p.Id</p>
+                                    }
+                                    </div>
+                                    
+                                    @if (p.IsCheckedIn)
+                                    {
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20.985 7.378L10.38 17.985L4.01599 11.621L5.42999 10.207L10.38 15.157L19.572 5.964L20.985 7.378Z" fill="#E8D2FF"/>
+                                        </svg>
+                                    }
+                                    else
+                                    {
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4.36798 2.724L8.99998 7.356L13.608 2.748C13.7098 2.63966 13.8324 2.55299 13.9685 2.49319C14.1046 2.4334 14.2513 2.4017 14.4 2.4C14.7182 2.4 15.0235 2.52643 15.2485 2.75147C15.4735 2.97652 15.6 3.28174 15.6 3.6C15.6028 3.74712 15.5755 3.89326 15.5198 4.02946C15.464 4.16565 15.3811 4.28902 15.276 4.392L10.608 9L15.276 13.668C15.4738 13.8615 15.5897 14.1235 15.6 14.4C15.6 14.7183 15.4735 15.0235 15.2485 15.2485C15.0235 15.4736 14.7182 15.6 14.4 15.6C14.247 15.6063 14.0945 15.5808 13.9519 15.525C13.8094 15.4693 13.68 15.3845 13.572 15.276L8.99998 10.644L4.37998 15.264C4.27858 15.3687 4.15745 15.4523 4.02358 15.51C3.8897 15.5677 3.74573 15.5983 3.59998 15.6C3.28172 15.6 2.97649 15.4736 2.75145 15.2485C2.5264 15.0235 2.39998 14.7183 2.39998 14.4C2.39718 14.2529 2.42447 14.1067 2.48019 13.9705C2.5359 13.8343 2.61886 13.711 2.72398 13.608L7.39197 9L2.72398 4.332C2.5262 4.13851 2.41022 3.87649 2.39998 3.6C2.39998 3.28174 2.5264 2.97652 2.75145 2.75147C2.97649 2.52643 3.28172 2.4 3.59998 2.4C3.88798 2.4036 4.16398 2.52 4.36798 2.724Z" fill="#E8D2FF"/>
+                                        </svg>
+                                    }
+                                    
+
+                                    
+
+                                </div>
+                            }
+                        </div>
+                    </ChildContent>
+                </MudExpansionPanel>
+
+            </div>
+        }
+    </div>
+</div>
 
 
 @code {
     [Parameter] public string valueScan { get; set; }
     [Parameter] public List<Event> events { get; set; }
-    
+    private bool _displayName;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _displayName = await ServiceLocator.ConfigurationService.GetFeature("DisplayRegisteredFullName");
+    }
+
+    private double CalculatePercentage(List<Registered> registered)
+    {
+        if (registered == null || registered.Count == 0)
+        {
+            return 0;
+        }
+
+        var checkedInCount = registered.Count(r => r.IsCheckedIn);
+        return (double)checkedInCount / registered.Count * 100;
+    }
+
+    private string NbRegisteredCheckedInAboutMax(List<Registered> registereds)
+    {
+        if (registereds == null || registereds.Count == 0)
+        {
+            return "0/0";
+        }
+
+        var checkedInCount = registereds.Count(r => r.IsCheckedIn);
+        return $"{checkedInCount}/{registereds.Count}";
+        
+    }
+
 }

@@ -1,48 +1,52 @@
 ﻿@using System.Text.Json
 @using M2E_conseiller.Models
+@using Smoby.Web.Services
 @inject IJSRuntime JSRuntime
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <div class="scanner">
-    <BlazorBarcodeScanner.ZXing.JS.BarcodeReader
-        StartCameraAutomatically="true"
-        ShowStart="false"
-        ShowReset="false"
-        ShowStop="false"
-        ShowResult="false"
-        Title=""
-        ShowToggleTorch = "false"
-        ShowVideoDeviceList="false"
-        OnBarcodeReceived="LocalReceivedBarcodeText"
-    />
+    @if (SelectedIndex == 0)
+    {
+        <BlazorBarcodeScanner.ZXing.JS.BarcodeReader
+            StartCameraAutomatically="true"
+            ShowStart="false"
+            ShowReset="false"
+            ShowStop="false"
+            ShowResult="false"
+            Title=""
+            ShowToggleTorch="false"
+            ShowVideoDeviceList="false"
+            OnBarcodeReceived="LocalReceivedBarcodeText"/>
+    }
     @if (_showAnimation)
-        {
-            <div class="animation">
-                <lottie-player src="@(_successScan ? "success-scan.json" : "fail-scan.json")"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" autoplay></lottie-player>   
-                <div class="animation-text">
-                    <p>@_textToShow</p>
-                    @if (_successScan)
-                    {
-                        <button class="animation-button" @onclick="() => OnSuccessScan.InvokeAsync()">Consulter</button>
-                    }
-                </div>
+    {
+        <div class="animation">
+            <lottie-player src="@(_successScan ? "success-scan.json" : "fail-scan.json")" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></lottie-player>
+            <div class="animation-text">
+                <p>@_textToShow</p>
+                @if (_successScan)
+                {
+                    <button class="animation-button" @onclick="() => OnSuccessScan.InvokeAsync()">Consulter</button>
+                }
             </div>
-        }
-    
-    </div>
+        </div>
+    }
+
+</div>
 
 @code
 {
     [Parameter] public EventCallback<string> OnSuccessScan { get; set; }
     [Parameter] public List<Event> events { get; set; }
+    [Parameter] public int SelectedIndex { get; set; }
     private bool _showAnimation = false;
     private bool _successScan = false;
     private QRcodeFormat? _registered;
     private string _textToShow = "";
-    
+
     private async void LocalReceivedBarcodeText(BarcodeReceivedEventArgs args)
     {
-        if(_showAnimation) return;
+        if (_showAnimation) return;
         try
         {
             _registered = JsonSerializer.Deserialize<QRcodeFormat>(args.BarcodeText);
@@ -50,21 +54,30 @@
             {
                 var registeredId = _registered.RegisteredId;
                 var eventId = _registered.EventId;
-                if(events.Any(e => e.Id == eventId && e.Registered.Any(r => r.Id == registeredId)))
+                if (events.Any(e => e.Id == eventId && e.Registered.Any(r => r.Id == registeredId)))
                 {
                     if (events.First(e => e.Id == eventId).Registered.First(r => r.Id == registeredId).IsCheckedIn)
                     {
-                        _successScan = false;
+                        _successScan = true;
                         _textToShow = "Vous avez déjà été enregistré";
                     }
                     else
                     {
                         _successScan = true;
                         var registered = events.First(e => e.Id == eventId).Registered.First(r => r.Id == registeredId);
-                        _textToShow = $"Bienvenue {registered.Firstname} {registered.Lastname}";
+                        if (await ServiceLocator.ConfigurationService.GetFeature("DisplayRegisteredFullName"))
+                        {
+                            _textToShow = $"Bienvenue {registered.Firstname} {registered.Lastname}";
+                        }
+                        else
+                        {
+                            _textToShow = "Bienvenue";
+                        }
+
                         events.First(e => e.Id == eventId).Registered.First(r => r.Id == registeredId).IsCheckedIn = true;
                         await localStorage.SetItemAsync("events", events);
                     }
+
                     ;
                 }
                 else if (events.Any(e => e.Id == eventId))
@@ -77,7 +90,6 @@
                     _successScan = false;
                     _textToShow = "Cet événement n'existe pas";
                 }
-                
             }
             else
             {
@@ -89,12 +101,12 @@
             _successScan = false;
             _textToShow = "Erreur lors de la lecture du QR Code";
         }
+
         _showAnimation = true;
         StateHasChanged();
     }
-    
-   
-    
+
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (_showAnimation)
@@ -108,8 +120,7 @@
     {
         _showAnimation = false;
         StateHasChanged();
-        
     }
-    
-    
+
+
 }

@@ -5,104 +5,111 @@
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <div class="home">
-<div class="home-intro">
-    <p>Bienvenue sur</p>
-    <Logo></Logo>
-  </div>
+    <div class="home-intro">
+        <p>Bienvenue sur</p>
+        <Logo></Logo>
+    </div>
 
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 272" fill="none" @onclick="ResetData">
-    <path d="M120.917 0.250002C128.527 0.247593 135.858 3.12196 141.438 8.29691C147.019 13.4719 150.437 20.5649 151.008 28.1542L151.083 30.4167V120.917C151.086 128.527 148.211 135.858 143.036 141.438C137.861 147.019 130.768 150.437 123.179 151.008L120.917 151.083H30.4167C22.806 151.086 15.4756 148.211 9.89507 143.036C4.31452 137.861 0.896222 130.768 0.32542 123.179L0.250002 120.917V30.4167C0.247593 22.806 3.12196 15.4756 8.29691 9.89507C13.4719 4.31452 20.5649 0.896222 28.1542 0.32542L30.4167 0.250002H120.917ZM120.917 30.4167H30.4167V120.917H120.917V30.4167ZM83.2083 60.5833C84.9735 60.5827 86.6829 61.2013 88.0389 62.3313C89.3949 63.4613 90.3116 65.0312 90.6293 66.7675L90.75 68.125V83.2083C90.7506 84.9735 90.132 86.6829 89.002 88.0389C87.872 89.3949 86.3021 90.3116 84.5658 90.6293L83.2083 90.75H68.125C66.3599 90.7506 64.6504 90.132 63.2944 89.002C61.9384 87.872 61.0217 86.3021 60.704 84.5658L60.5833 83.2083V68.125C60.5827 66.3599 61.2013 64.6504 62.3313 63.2944C63.4613 61.9384 65.0312 61.0217 66.7675 60.704L68.125 60.5833H83.2083ZM271.75 30.4167C271.75 22.416 268.572 14.743 262.914 9.08561C257.257 3.42827 249.584 0.250002 241.583 0.250002H211.417C203.416 0.250002 195.743 3.42827 190.086 9.08561C184.428 14.743 181.25 22.416 181.25 30.4167V60.5833C181.25 68.584 184.428 76.257 190.086 81.9144C195.743 87.5717 203.416 90.75 211.417 90.75H241.583C249.584 90.75 257.257 87.5717 262.914 81.9144C268.572 76.257 271.75 68.584 271.75 60.5833V30.4167ZM211.417 30.4167H241.583V60.5833H211.417V30.4167ZM60.5833 181.25C68.584 181.25 76.257 184.428 81.9144 190.086C87.5717 195.743 90.75 203.416 90.75 211.417V241.583C90.75 249.584 87.5717 257.257 81.9144 262.914C76.257 268.572 68.584 271.75 60.5833 271.75H30.4167C22.416 271.75 14.743 268.572 9.08561 262.914C3.42827 257.257 0.250002 249.584 0.250002 241.583V211.417C0.250002 203.416 3.42827 195.743 9.08561 190.086C14.743 184.428 22.416 181.25 30.4167 181.25H60.5833ZM60.5833 211.417H30.4167V241.583H60.5833V211.417ZM271.75 211.417C271.75 203.416 268.572 195.743 262.914 190.086C257.257 184.428 249.584 181.25 241.583 181.25H211.417C203.416 181.25 195.743 184.428 190.086 190.086C184.428 195.743 181.25 203.416 181.25 211.417V241.583C181.25 249.584 184.428 257.257 190.086 262.914C195.743 268.572 203.416 271.75 211.417 271.75H241.583C249.584 271.75 257.257 268.572 262.914 262.914C268.572 257.257 271.75 249.584 271.75 241.583V211.417ZM211.417 211.417H241.583V241.583H211.417V211.417ZM181.25 136C181.25 132 182.839 128.163 185.668 125.334C188.496 122.506 192.333 120.917 196.333 120.917H256.667C260.667 120.917 264.504 122.506 267.332 125.334C270.161 128.163 271.75 132 271.75 136C271.75 140 270.161 143.837 267.332 146.666C264.504 149.494 260.667 151.083 256.667 151.083H196.333C192.333 151.083 188.496 149.494 185.668 146.666C182.839 143.837 181.25 140 181.25 136ZM151.083 196.333C151.083 192.333 149.494 188.496 146.666 185.668C143.837 182.839 140 181.25 136 181.25C132 181.25 128.163 182.839 125.334 185.668C122.506 188.496 120.917 192.333 120.917 196.333V256.667C120.917 260.667 122.506 264.504 125.334 267.332C128.163 270.161 132 271.75 136 271.75C140 271.75 143.837 270.161 146.666 267.332C149.494 264.504 151.083 260.667 151.083 256.667V196.333Z" fill="url(#paint0_linear_14_447)" fill-opacity="0.16"/>
-    <defs>
-      <linearGradient id="paint0_linear_14_447" x1="136" y1="0.25" x2="136" y2="271.75" gradientUnits="userSpaceOnUse">
-        <stop stop-color="white"/>
-        <stop offset="1" stop-color="white" stop-opacity="0.31"/>
-      </linearGradient>
-    </defs>
-  </svg>
-  
-  <button class="home-scanButton" @onclick="OpenDialog">
-    Scan
-  </button>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 272" fill="none" @onclick="ResetData">
+        <path d="M120.917 0.250002C128.527 0.247593 135.858 3.12196 141.438 8.29691C147.019 13.4719 150.437 20.5649 151.008 28.1542L151.083 30.4167V120.917C151.086 128.527 148.211 135.858 143.036 141.438C137.861 147.019 130.768 150.437 123.179 151.008L120.917 151.083H30.4167C22.806 151.086 15.4756 148.211 9.89507 143.036C4.31452 137.861 0.896222 130.768 0.32542 123.179L0.250002 120.917V30.4167C0.247593 22.806 3.12196 15.4756 8.29691 9.89507C13.4719 4.31452 20.5649 0.896222 28.1542 0.32542L30.4167 0.250002H120.917ZM120.917 30.4167H30.4167V120.917H120.917V30.4167ZM83.2083 60.5833C84.9735 60.5827 86.6829 61.2013 88.0389 62.3313C89.3949 63.4613 90.3116 65.0312 90.6293 66.7675L90.75 68.125V83.2083C90.7506 84.9735 90.132 86.6829 89.002 88.0389C87.872 89.3949 86.3021 90.3116 84.5658 90.6293L83.2083 90.75H68.125C66.3599 90.7506 64.6504 90.132 63.2944 89.002C61.9384 87.872 61.0217 86.3021 60.704 84.5658L60.5833 83.2083V68.125C60.5827 66.3599 61.2013 64.6504 62.3313 63.2944C63.4613 61.9384 65.0312 61.0217 66.7675 60.704L68.125 60.5833H83.2083ZM271.75 30.4167C271.75 22.416 268.572 14.743 262.914 9.08561C257.257 3.42827 249.584 0.250002 241.583 0.250002H211.417C203.416 0.250002 195.743 3.42827 190.086 9.08561C184.428 14.743 181.25 22.416 181.25 30.4167V60.5833C181.25 68.584 184.428 76.257 190.086 81.9144C195.743 87.5717 203.416 90.75 211.417 90.75H241.583C249.584 90.75 257.257 87.5717 262.914 81.9144C268.572 76.257 271.75 68.584 271.75 60.5833V30.4167ZM211.417 30.4167H241.583V60.5833H211.417V30.4167ZM60.5833 181.25C68.584 181.25 76.257 184.428 81.9144 190.086C87.5717 195.743 90.75 203.416 90.75 211.417V241.583C90.75 249.584 87.5717 257.257 81.9144 262.914C76.257 268.572 68.584 271.75 60.5833 271.75H30.4167C22.416 271.75 14.743 268.572 9.08561 262.914C3.42827 257.257 0.250002 249.584 0.250002 241.583V211.417C0.250002 203.416 3.42827 195.743 9.08561 190.086C14.743 184.428 22.416 181.25 30.4167 181.25H60.5833ZM60.5833 211.417H30.4167V241.583H60.5833V211.417ZM271.75 211.417C271.75 203.416 268.572 195.743 262.914 190.086C257.257 184.428 249.584 181.25 241.583 181.25H211.417C203.416 181.25 195.743 184.428 190.086 190.086C184.428 195.743 181.25 203.416 181.25 211.417V241.583C181.25 249.584 184.428 257.257 190.086 262.914C195.743 268.572 203.416 271.75 211.417 271.75H241.583C249.584 271.75 257.257 268.572 262.914 262.914C268.572 257.257 271.75 249.584 271.75 241.583V211.417ZM211.417 211.417H241.583V241.583H211.417V211.417ZM181.25 136C181.25 132 182.839 128.163 185.668 125.334C188.496 122.506 192.333 120.917 196.333 120.917H256.667C260.667 120.917 264.504 122.506 267.332 125.334C270.161 128.163 271.75 132 271.75 136C271.75 140 270.161 143.837 267.332 146.666C264.504 149.494 260.667 151.083 256.667 151.083H196.333C192.333 151.083 188.496 149.494 185.668 146.666C182.839 143.837 181.25 140 181.25 136ZM151.083 196.333C151.083 192.333 149.494 188.496 146.666 185.668C143.837 182.839 140 181.25 136 181.25C132 181.25 128.163 182.839 125.334 185.668C122.506 188.496 120.917 192.333 120.917 196.333V256.667C120.917 260.667 122.506 264.504 125.334 267.332C128.163 270.161 132 271.75 136 271.75C140 271.75 143.837 270.161 146.666 267.332C149.494 264.504 151.083 260.667 151.083 256.667V196.333Z" fill="url(#paint0_linear_14_447)" fill-opacity="0.16"/>
+        <defs>
+            <linearGradient id="paint0_linear_14_447" x1="136" y1="0.25" x2="136" y2="271.75" gradientUnits="userSpaceOnUse">
+                <stop stop-color="white"/>
+                <stop offset="1" stop-color="white" stop-opacity="0.31"/>
+            </linearGradient>
+        </defs>
+    </svg>
 
-  @if (_showAlert)
-  {
-      <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center" Variant="Variant.Filled" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(true))">Dataset is reset !</MudAlert>
-  }
+    <button class="home-scanButton" @onclick="OpenDialog">
+        Scan
+    </button>
+
+    @if (_showAlert)
+    {
+        <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center" Variant="Variant.Filled" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(true))">Dataset is reset !</MudAlert>
+    }
 </div>
 
 @code {
-  [Parameter] public EventCallback OnScanActivated { get; set; }
-  private bool _showAlert = false;
+    [Parameter] public EventCallback OnScanActivated { get; set; }
+    private bool _showAlert = false;
 
-  private async Task ActivateScanner()
-  {
-    await OnScanActivated.InvokeAsync();
-  }
-  private async void OpenDialog()
-  {
-    var scannerActivated = await localStorage.GetItemAsync<string>("scannerActivated");
-    Console.WriteLine(scannerActivated);
-    if (scannerActivated != null)
+    private async Task ActivateScanner()
     {
-      await ActivateScanner();
-      return;
+        await OnScanActivated.InvokeAsync();
     }
-    
-    var options = new DialogOptions { CloseOnEscapeKey = true, NoHeader = true};
-    var dialog = await DialogService.ShowAsync<Dialog>("Simple Dialog", options);
-    var result = await dialog.Result;
 
-    if (result.Data is bool)
+    private async void OpenDialog()
     {
-      await localStorage.SetItemAsync("scannerActivated", (bool)result.Data);
-      await ActivateScanner();
+        var scannerActivated = await localStorage.GetItemAsync<string>("scannerActivated");
+        Console.WriteLine(scannerActivated);
+        if (scannerActivated != null)
+        {
+            await ActivateScanner();
+            return;
+        }
+
+        var options = new DialogOptions { CloseOnEscapeKey = true, NoHeader = true };
+        var dialog = await DialogService.ShowAsync<Dialog>("Simple Dialog", options);
+        var result = await dialog.Result;
+
+        if (result.Data is bool)
+        {
+            await localStorage.SetItemAsync("scannerActivated", (bool)result.Data);
+            await ActivateScanner();
+        }
     }
-  }
-  
-  private async void ResetData()
-  {
-    var events = new List<Event>
+
+    private async void ResetData()
     {
-      new Event 
-      { 
-        Id = 1, 
-        Name = "Event 1", 
-        Description = "Description 1", 
-        Location = "Location 1", 
-        Date = DateTime.Now, 
-        Capacity = 100, 
-        Registered = new List<Registered> 
-        { 
-          new Registered { Id = 1, Lastname = "Doe", Firstname = "John", IsCheckedIn = false}, 
-          new Registered { Id = 2, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false } 
-        } 
-      },
-      new Event 
-      { 
-        Id = 2, 
-        Name = "Event 2", 
-        Description = "Description 2", 
-        Location = "Location 2", 
-        Date = DateTime.Now, 
-        Capacity = 200, 
-        Registered = new List<Registered> 
-        { 
-          new Registered { Id = 3, Lastname = "Brown", Firstname = "Bob", IsCheckedIn = false }, 
-          new Registered { Id = 4, Lastname = "Johnson", Firstname = "Alice", IsCheckedIn = false } 
-        } 
-      }
-    };
-    await localStorage.SetItemAsync("events", events);
-    _showAlert = true;
-    StateHasChanged();
-  }
-  
-  private void CloseMe(bool value)
-  {
-    if (value)
-    {
-      _showAlert = false;
+        var events = new List<Event>
+        {
+            new Event
+            {
+                Id = 1,
+                Name = "Evenement 1",
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                Location = "Salle Lorem",
+                Date = DateTime.Now,
+                Capacity = 100,
+                Registered = new List<Registered>
+                {
+                    new Registered { Id = 1, Lastname = "Doe", Firstname = "John", IsCheckedIn = false },
+                    new Registered { Id = 2, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
+                    new Registered { Id = 3, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
+                    new Registered { Id = 4, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
+                    new Registered { Id = 5, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
+                    new Registered { Id = 6, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
+                    new Registered { Id = 7, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
+                    new Registered { Id = 28, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false }
+                }
+            },
+            /*new Event
+            {
+              Id = 2,
+              Name = "Event 2",
+              Description = "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              Location = "Salle Ipsum",
+              Date = DateTime.Now,
+              Capacity = 200,
+              Registered = new List<Registered>
+              {
+                new Registered { Id = 3, Lastname = "Brown", Firstname = "Bob", IsCheckedIn = false },
+                new Registered { Id = 4, Lastname = "Johnson", Firstname = "Alice", IsCheckedIn = false }
+              }
+            }*/
+        };
+        await localStorage.SetItemAsync("events", events);
+        _showAlert = true;
+        StateHasChanged();
     }
-  }
+
+    private void CloseMe(bool value)
+    {
+        if (value)
+        {
+            _showAlert = false;
+        }
+    }
 
 }

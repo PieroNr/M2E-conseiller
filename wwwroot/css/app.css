@@ -7,17 +7,18 @@ html, body {
 }
 
 * {
-    font-family: 'Poppins', sans-serif!important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 .mud-dialog {
-    border-radius: 10px!important;
+    border-radius: 10px !important;
     width: 85%;
 }
 
 .mud-dialog-actions {
-    justify-content: center!important;
-    border-top: 0.5px solid rgba(103, 103, 103, 0.28);!important;
+    justify-content: center !important;
+    border-top: 0.5px solid rgba(103, 103, 103, 0.28);
+!important;
     margin-top: 1rem;
 }
 
@@ -26,6 +27,44 @@ html, body {
     font-size: 1rem;
     font-style: normal;
     font-weight: 600;
+}
+
+
+.mud-progress-linear.mud-progress-linear-color-default:not(.mud-progress-linear-buffer) .mud-progress-linear-bar {
+    background-color: rgba(255, 255, 255, 0.71) !important;
+}
+
+.mud-progress-linear {
+    height: 13px !important;
+}
+
+.mud-progress-linear .mud-typography {
+    mix-blend-mode: difference;
+    font-size: 14px;
+}
+
+.mud-expand-panel {
+    background-color: transparent !important;
+    padding: 0 20px;
+}
+
+.mud-expand-panel-header {
+    padding: 0 !important;
+}
+
+.mud-collapse-entered {
+    padding-bottom: 20px;
+}
+
+.mud-expand-panel-icon {
+    background-color: white;
+    border-radius: 50%;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.mud-icon-root.mud-svg-icon {
+    fill: #8000FF !important;
 }
 
 h1:focus {

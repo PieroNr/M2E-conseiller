@@ -8,7 +8,7 @@
 
 
 <main>
-    @if(OnScan || _selectedIndex != 0)
+    @if (OnScan || _selectedIndex != 0 || !_displayHome)
     {
         <Logo OnClick="GoToHome"></Logo>
     }
@@ -17,9 +17,9 @@
 
             <MudCarousel Class="slider" ShowArrows="false" ShowBullets="false" EnableSwipeGesture="true" AutoCycle="false" @bind-SelectedIndex="_selectedIndex" TData="object">
                 <MudCarouselItem>
-                    @if (OnScan)
+                    @if (OnScan || !_displayHome)
                     {
-                        <Scanner OnSuccessScan="(string value) => ScanValidated(value)" events="EventList"></Scanner>
+                        <Scanner SelectedIndex="@_selectedIndex" OnSuccessScan="(string value) => ScanValidated(value)" events="EventList"></Scanner>
                     }
                     else
                     {
@@ -36,9 +36,9 @@
     </article>
 </main>
 
-    <div class="navbar">
-        <NavMenu SelectedIndex="@_selectedIndex" SelectedIndexChanged="UpdateSelectedIndex"></NavMenu>
-    </div>
+<div class="navbar">
+    <NavMenu SelectedIndex="@_selectedIndex" SelectedIndexChanged="UpdateSelectedIndex"></NavMenu>
+</div>
 
 
 @code {
@@ -46,41 +46,44 @@
     [Parameter] public List<Event> EventList { get; set; } = new List<Event>();
     private int _selectedIndex = 0;
     private string valueScan = "";
+    private bool _displayHome;
 
     private void UpdateSelectedIndex(int index)
     {
         _selectedIndex = index;
     }
 
-   protected override async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         var events = await localStorage.GetItemAsync<List<Event>>("events");
         if (events != null)
         {
             EventList = events;
         }
-        
+
+        _displayHome = await ServiceLocator.ConfigurationService.GetFeature("DisplayHome");
         localStorage.Changed += OnLocalStorageChanged;
         var scannerActivated = await localStorage.GetItemAsync<string>("scannerActivated");
-        if (!await ServiceLocator.ConfigurationService.GetFeature("DisplayHome")!)
+        if ((!string.IsNullOrEmpty(scannerActivated) && scannerActivated == "true"))
         {
             OnScan = true;
         }
     }
-    
+
     private async void GoToHome()
     {
         OnScan = false;
+        _displayHome = true;
         _selectedIndex = 0;
         await localStorage.RemoveItemAsync("scannerActivated");
     }
-    
+
     private void ScanValidated(string value)
     {
         _selectedIndex = 1;
         valueScan = value;
     }
-    
+
     private async void OnLocalStorageChanged(object sender, ChangedEventArgs e)
     {
         if (e.Key == "events")
