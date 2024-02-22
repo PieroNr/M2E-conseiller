@@ -1,6 +1,6 @@
 {
-  "name": "M2E-conseiller",
-  "short_name": "M2E-conseiller",
+  "name": "M2E Conseiller",
+  "short_name": "M2E Conseiller",
   "start_url": "./",
   "display": "fullscreen",
   "background_color": "#B265FF",

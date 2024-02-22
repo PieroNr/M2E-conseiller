@@ -1,6 +1,8 @@
 ﻿@using MudBlazor
 @using M2E_conseiller.wwwroot.Components
 @using M2E_conseiller.Models
+@using Smoby.Web.Services
+@using System.Text.Json
 @inject IDialogService DialogService
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
@@ -62,43 +64,9 @@
 
     private async void ResetData()
     {
-        var events = new List<Event>
-        {
-            new Event
-            {
-                Id = 1,
-                Name = "Evenement 1",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                Location = "Salle Lorem",
-                Date = DateTime.Now,
-                Capacity = 100,
-                Registered = new List<Registered>
-                {
-                    new Registered { Id = 1, Lastname = "Doe", Firstname = "John", IsCheckedIn = false },
-                    new Registered { Id = 2, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
-                    new Registered { Id = 3, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
-                    new Registered { Id = 4, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
-                    new Registered { Id = 5, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
-                    new Registered { Id = 6, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
-                    new Registered { Id = 7, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false },
-                    new Registered { Id = 28, Lastname = "Smith", Firstname = "Jane", IsCheckedIn = false }
-                }
-            },
-            /*new Event
-            {
-              Id = 2,
-              Name = "Event 2",
-              Description = "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-              Location = "Salle Ipsum",
-              Date = DateTime.Now,
-              Capacity = 200,
-              Registered = new List<Registered>
-              {
-                new Registered { Id = 3, Lastname = "Brown", Firstname = "Bob", IsCheckedIn = false },
-                new Registered { Id = 4, Lastname = "Johnson", Firstname = "Alice", IsCheckedIn = false }
-              }
-            }*/
-        };
+        var events = JsonSerializer.Deserialize<List<Event>>(await ServiceLocator.ConfigurationService.GetWording("eventList"));
+        Console.WriteLine(events);
+        
         await localStorage.SetItemAsync("events", events);
         _showAlert = true;
         StateHasChanged();

@@ -20,7 +20,6 @@ configurationParameters.Add("CloudConfigurationParameters",new CloudConfiguratio
 ServiceLocator.ConfigurationService.InitializationParameters = configurationParameters;
 ServiceLocator.InitializationService.AddIInitializeObject(ServiceLocator.ConfigurationService);
 ServiceLocator.InitializationService.InitializeAll();
-
 await builder.Build().RunAsync();
 
 
