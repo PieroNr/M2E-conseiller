@@ -65,7 +65,7 @@
                     {
                         _successScan = true;
                         var registered = events.First(e => e.Id == eventId).Registered.First(r => r.Id == registeredId);
-                        if (await ServiceLocator.ConfigurationService.GetFeature("DisplayRegisteredFullName"))
+                        if (await ServiceLocator.ConfigurationService.GetFeatureAsync("DisplayRegisteredFullName"))
                         {
                             _textToShow = $"Bienvenue {registered.Firstname} {registered.Lastname}";
                         }
