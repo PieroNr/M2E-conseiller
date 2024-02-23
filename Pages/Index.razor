@@ -61,7 +61,7 @@
             EventList = events;
         }
 
-        _displayHome = await ServiceLocator.ConfigurationService.GetFeature("DisplayHome");
+        _displayHome = await ServiceLocator.ConfigurationService.GetFeatureAsync("DisplayHome");
         localStorage.Changed += OnLocalStorageChanged;
         var scannerActivated = await localStorage.GetItemAsync<string>("scannerActivated");
         if ((!string.IsNullOrEmpty(scannerActivated) && scannerActivated == "true"))

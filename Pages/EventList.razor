@@ -15,7 +15,7 @@
                 </div>
 
                 <p class="event-description">@e.Description</p>
-
+                    
                 <p class="event-location">@e.Location</p>
                 </div>
                 <MudExpansionPanel Dense="true" DisableGutters="true">
@@ -87,7 +87,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _displayName = await ServiceLocator.ConfigurationService.GetFeature("DisplayRegisteredFullName");
+        _displayName = await ServiceLocator.ConfigurationService.GetFeatureAsync("DisplayRegisteredFullName");
     }
 
     private double CalculatePercentage(List<Registered> registered)

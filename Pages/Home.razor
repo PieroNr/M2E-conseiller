@@ -64,7 +64,7 @@
 
     private async void ResetData()
     {
-        var events = JsonSerializer.Deserialize<List<Event>>(await ServiceLocator.ConfigurationService.GetWording("eventList"));
+        var events = JsonSerializer.Deserialize<List<Event>>(await ServiceLocator.ConfigurationService.GetWordingAsync("eventList"));
         Console.WriteLine(events);
         
         await localStorage.SetItemAsync("events", events);
